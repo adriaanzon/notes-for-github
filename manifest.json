@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "Notes for GitHub",
+  "description": "Attach notes to GitHub issues and pull requests",
+  "version": "0.0.1",
+  "content_scripts": [
+    {
+      "run_at": "document_start",
+      "matches": [
+        "https://github.com/*"
+      ],
+      "js": [
+        "dist/build.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "storage"
+  ]
+}
