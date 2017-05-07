@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Notes from './Notes.vue'
 
+Vue.prototype.$bus = new Vue();
+
 function main() {
   let segments = window.location.pathname.split('/')
 
