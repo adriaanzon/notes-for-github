@@ -23,6 +23,7 @@
 
 <script>
 import Note from './Note.vue'
+import Storage from './Storage'
 
 export default {
   components: {
@@ -40,12 +41,11 @@ export default {
     this.issueId = window.location.pathname.split('/')[4]
     this.repoId = document.querySelector('meta[name="octolytics-dimension-repository_id"]').getAttribute('content')
 
-    chrome.storage.sync.get(this.selector, (notes) => {
-      if (Object.keys(notes).length) {
-        this.notes = JSON.parse(notes[this.selector])
-      }
-      this.loading = false
-    })
+    Storage.get(this.selector, [])
+      .then((notes) => {
+        this.notes = notes
+        this.loading = false
+      })
 
     this.$bus.$on('persist', this.saveNotes)
   },
@@ -55,9 +55,7 @@ export default {
       this.notes.push({ text: '' })
     },
     saveNotes() {
-      let data = {}
-      data[this.selector] = JSON.stringify(this.notes)
-      chrome.storage.sync.set(data)
+      Storage.set(this.selector, this.notes)
     }
   },
 
