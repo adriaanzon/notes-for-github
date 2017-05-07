@@ -22,3 +22,4 @@ function initializeNotes() {
 }
 
 window.addEventListener('DOMContentLoaded', main, false)
+window.addEventListener('pjax:end', main, false)
