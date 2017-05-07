@@ -6,14 +6,16 @@
 
     <textarea class="form-control" v-model="text" v-else></textarea>
 
-    <div v-if="isEditing">
-      <button class="btn btn-sm pull-right" @click="persist" v-if="text.length">
+    <div v-if="isEditing" style="padding-top: 8px">
+      <button class="btn btn-sm pull-right" @click="persist" :disabled="!text.length">
         Save
       </button>
+
       <button class="btn-link pull-right" @click="cancel">
         Cancel
       </button>
     </div>
+
     <button v-if="!isEditing" class="btn btn-sm pull-right" @click="edit">
       Edit
     </button>

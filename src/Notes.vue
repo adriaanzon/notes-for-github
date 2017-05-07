@@ -1,17 +1,22 @@
 <template>
-  <div class="discussion-sidebar-item sidebar-assignee js-discussion-sidebar-item position-relative">
+  <div class="discussion-sidebar-item sidebar-assignee position-relative">
     <button type="button"
-            class="discussion-sidebar-heading discussion-sidebar-toggle js-menu-target"
+            class="discussion-sidebar-heading discussion-sidebar-toggle"
             aria-label="Add a new note"
             aria-haspopup="true"
             @click="createNote()">
       Notes
     </button>
 
-    <note v-for="note in notes" :saved-text.sync="note.text"></note>
+    <note
+      v-for="note in notes"
+      :saved-text.sync="note.text"
+    ></note>
+
     <div v-if="!loading && notes.length == 0">
       None—<button class="btn-link muted-link" @click="createNote()">create your first one</button>
     </div>
+
     <div v-if="loading">Loading...</div>
   </div>
 </template>
