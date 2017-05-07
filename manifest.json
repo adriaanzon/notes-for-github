@@ -3,6 +3,7 @@
   "name": "Notes for GitHub",
   "description": "Attach notes to GitHub issues and pull requests",
   "version": "0.0.1",
+  "minimum_chrome_version": "49",
   "content_scripts": [
     {
       "run_at": "document_start",
