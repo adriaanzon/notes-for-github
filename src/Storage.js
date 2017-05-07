@@ -3,7 +3,7 @@
 // https://developer.chrome.com/extensions/runtime#property-lastError
 
 export default class Storage {
-  static get(key, defaultValue) {
+  static get(key, defaultValue = null) {
     return new Promise((resolve, reject) => {
       chrome.storage.sync.get(key, (items) => {
         resolve(Object.keys(items).length ? JSON.parse(items[key]) : defaultValue)
