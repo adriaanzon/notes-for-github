@@ -6,13 +6,15 @@
   "private": true,
   "scripts": {
     "dev": "rollup --config --watch",
-    "build": "NODE_ENV=production rollup --config"
+    "build": "NODE_ENV=production rollup --config",
+    "package": "npm run build && zip -rj $npm_package_name-$npm_package_version.zip dist/"
   },
   "dependencies": {
     "vue": "^2.3.2"
   },
   "devDependencies": {
     "rollup": "^0.41.6",
+    "rollup-plugin-copy": "^0.2.3",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-replace": "^1.1.1",
     "rollup-plugin-uglify": "^1.0.2",

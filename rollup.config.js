@@ -1,3 +1,4 @@
+import copy from 'rollup-plugin-copy'
 import replace from 'rollup-plugin-replace'
 import resolve from 'rollup-plugin-node-resolve'
 import uglify from 'rollup-plugin-uglify'
@@ -13,7 +14,8 @@ module.exports = {
     vue(),
     replace({
       'process.env.NODE_ENV': JSON.stringify('production')
-    })
+    }),
+    copy({ 'manifest.json': 'dist/manifest.json' })
   ]
 }
 
