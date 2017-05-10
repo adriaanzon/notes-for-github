@@ -1,5 +1,5 @@
 <template>
-  <div class="discussion-sidebar-item sidebar-assignee position-relative">
+  <div class="discussion-sidebar-item sidebar-assignee position-relative notes-for-github-component">
     <button type="button"
             class="discussion-sidebar-heading discussion-sidebar-toggle"
             aria-label="Add a new note"
